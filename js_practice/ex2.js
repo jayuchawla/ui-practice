@@ -52,3 +52,7 @@ const replaceFirstDigit = (str) =>  str.replace(/[0-9]/, '$') // or \d
 const replaceAllDigit = (str) =>  str.replace(/\d/g, '$') 
 console.log(replaceFirstDigit('Hell11o@world'));
 console.log(replaceAllDigit('Hell11o@world'));
+
+// 11. random hexadecimal number
+const randomHexad = () => `#${Array.from({length:6}).map(x=>Math.floor((Math.random()*16)).toString(16).toUpperCase()).join('')}` 
+console.log(randomHexad())
