@@ -57,4 +57,24 @@ basicPlanStorage.innerText = basicPlanStorage.innerText * 1.25
 proPlanStorage.innerText = proPlanStorage.innerText * 1.5
 
 // Task 5
-// document.querySelector('.container').insertAdjacentHTML('afterbegin', )
+
+document.querySelector('.container').insertAdjacentHTML('afterbegin', '<label>Monthly</label><input id="monthlyPricing" type="radio" name="payment" value="monthly" /><label>Annually</label><input id="annualPricing" type="radio" name="payment" value="annual" />')
+
+const pricing = {
+    monthly: {
+        basic: '10 / month',
+        pro: '30 / month'
+    },
+    annual: {
+        basic: '100 / year',
+        pro: '300 / year'
+    }
+}
+
+const priceBasicNode = document.querySelector("#basic-plan .pricing")
+const priceProNode = document.querySelector("#pro-plan .pricing")
+const evaluatePricing = (event) => {
+    priceBasicNode.innerText = pricing[event.target.value].basic
+    priceProNode.innerText = pricing[event.target.value].pro
+}
+Array.from(document.querySelectorAll(".container input[type=radio]")).forEach((radio) => radio.addEventListener('change', evaluatePricing))
