@@ -153,4 +153,4 @@ accounts.reduce((accumulator, account) => accumulator.concat(account.friends), [
   * Get a list of all the friends for all users who are younger than 30 AND have a balance more than $1500
   */
 const balanceValue = (balance) => parseInt(/\$([0-9,]+)/.exec(balance)[1].split(",").join(''))
-accounts.filter((account) => account.age < 30 && balanceValue(account.balance)).reduce((accumulator, account) => accumulator.concat(account.friends), [])
+accounts.filter((account) => account.age < 30 && balanceValue(account.balance) > 1500).reduce((accumulator, account) => accumulator.concat(account.friends), [])
